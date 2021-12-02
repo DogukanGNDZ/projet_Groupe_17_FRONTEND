@@ -46,7 +46,7 @@ const Navbar = () => {
                 <a class="nav-link" href="#" data-uri="/logout">Log out</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/loginRegiste">Log in/ Register</a>
+                <a class="nav-link" href="#" data-uri="/login">Log in</a>
               </li>
             </ul>
           </div>

@@ -5,11 +5,12 @@ import AboutUsPage from "../Pages/AboutUsPage";
 import GamePage from "../Pages/GamePage";
 import LoginPage from "../Pages/LoginPage";
 
+
 // Configure your routes here
 const routes = {
   "/": HomePage,
   "/game": GamePage,
-  "/loginRegiste": LoginRegisterPage,
+  "/login": LoginPage,
   "/logout": LogoutComponent,
   "/aboutUsPage": AboutUsPage
 };
