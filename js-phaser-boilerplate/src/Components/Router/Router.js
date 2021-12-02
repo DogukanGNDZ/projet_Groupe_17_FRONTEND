@@ -1,12 +1,16 @@
 import HomePage from "../Pages/HomePage";
-import NewPage from "../Pages/NewPage";
+import LoginRegisterPage from "../Pages/LoginRegisterPage";
+import LogoutComponent from "../Pages/LogoutComponent";
+import AboutUsPage from "../Pages/AboutUsPage";
 import GamePage from "../Pages/GamePage";
 
 // Configure your routes here
 const routes = {
   "/": HomePage,
   "/game": GamePage,
-  "/new": NewPage,
+  "/loginRegiste": LoginRegisterPage,
+  "/logout": LogoutComponent,
+  "/aboutUsPage": AboutUsPage
 };
 
 /**
