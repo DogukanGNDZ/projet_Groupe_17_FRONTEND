@@ -9,14 +9,9 @@ import LoginPage from "../Pages/LoginPage";
 const routes = {
   "/": HomePage,
   "/game": GamePage,
-<<<<<<< HEAD
   "/loginRegiste": LoginRegisterPage,
   "/logout": LogoutComponent,
   "/aboutUsPage": AboutUsPage
-=======
-  "/new": NewPage,
-  "/login":LoginPage,
->>>>>>> f11b2830593d062f29739dba47e80d6acce27b0c
 };
 
 /**
