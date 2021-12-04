@@ -1,8 +1,8 @@
 import Phaser from "phaser";
 
-const formatScore = (score) => `Piece récupérer: ${score}`;
+const formatScore = (score) => `Piece in coffer: ${score}`;
 
-export default class ScoreLabel extends Phaser.GameObjects.Text {
+export default class ScoreLabel2 extends Phaser.GameObjects.Text {
   constructor(scene, x, y, score, style) {
     super(scene, x, y, formatScore(score), style);
     console.log("inside class", this.text);
