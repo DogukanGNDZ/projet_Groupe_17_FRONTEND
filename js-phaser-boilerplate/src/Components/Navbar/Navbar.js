@@ -3,6 +3,7 @@
 // Here, because our JS component 'Navbar' has the same name as Navbar Bootstrap's component
 // we change the name of the imported Bootstrap's 'Navbar' component
 import { Navbar as BootstrapNavbar} from "bootstrap";
+import { getUserSessionData } from "../utils/session.js";
 
 /**
  * Render the Navbar which is styled by using Bootstrap
@@ -16,7 +17,6 @@ const Navbar = () => {
   let navbar = `
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Add your brand here</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -29,16 +29,25 @@ const Navbar = () => {
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/game">Game</a>
+              </li>             
+            </ul>
+            <a class="navbar-brand " href="#">Watch out</a>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/aboutUsPage">About us</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/new">New Page</a>
-              </li>                        
+                <a class="nav-link" href="#" data-uri="/logout">Log out</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/login">Log in</a>
+              </li>
             </ul>
           </div>
         </div>
