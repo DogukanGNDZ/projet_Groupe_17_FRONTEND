@@ -8,18 +8,31 @@ const VOITURERD_KEY = "voitureRD";
 const VOITUREJG_KEY = "voitureJG";
 const VOITUREJD_KEY = "voitureJD";
 const COFFRE ='coffre';
+const MUR1='mur1';
+
 import ScoreLabel from "./ScoreLabel.js";
 import ScoreLabel2 from "./ScoreLabel2.js";
 import BombSpawner from "./BombSpawner.js";
 import skyAsset from "../../assets/back.png";
 import platformAsset from "../../assets/platform.png";
-import starAsset from "../../assets/star.png";
+import starAsset from "../../assets/coin16x16.png";
 import voitureRougeGAsset from "../../assets/voitureRougeGauche.png";
 import voitureRougeDAsset from "../../assets/voitureRougeDroite.png";
 import voitureJauneGAsset from "../../assets/voitureJauneGauche.png";
 import voitureJauneDAsset from "../../assets/voitureJauneDroite.png";
 import dudeAsset from "../../assets/dude.png";
 import coffre from "../../assets/coffre.png";
+
+//import des murs
+import mur1 from "../../assets/mur1.png";
+import mur2 from "../../assets/mur2.png";
+import mur3 from "../../assets/mur3.png";
+import mur4 from "../../assets/mur4.png";
+import mur5 from "../../assets/mur5.png";
+import mur8 from "../../assets/mur8.png";
+import mur9 from "../../assets/mur9.png";
+import mur10 from "../../assets/mur10.png";
+import mur11 from "../../assets/mur11.png";
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -34,6 +47,7 @@ class GameScene extends Phaser.Scene {
     this.gameOver = false;
     this.timedEvent = undefined;
     this.coffre =undefined;
+
   }
 
   preload() {
@@ -41,11 +55,27 @@ class GameScene extends Phaser.Scene {
     this.load.image("sky", skyAsset);
     this.load.image(COFFRE, coffre);
     this.load.image(GROUND_KEY, platformAsset);
-    this.load.image(STAR_KEY, starAsset );
+    //charge mur
+    this.load.image(MUR1, mur1);
+    this.load.image("mur2", mur2);
+    this.load.image("mur3", mur3);
+    this.load.image("mur4", mur4);
+    this.load.image("mur5", mur5);
+    this.load.image("mur8", mur8);
+    this.load.image("mur9", mur9);
+    this.load.image("mur10", mur10);
+    this.load.image("mur11", mur11);
+    
+    //charge Voiture
     this.load.image(VOITURERG_KEY, voitureRougeGAsset);
     this.load.image(VOITURERD_KEY, voitureRougeDAsset);
     this.load.image(VOITUREJG_KEY, voitureJauneGAsset);
     this.load.image(VOITUREJD_KEY, voitureJauneDAsset);
+    
+    this.load.spritesheet(STAR_KEY, starAsset , {
+      frameWidth: 15,
+      frameHeight: 48,
+    });
     this.load.spritesheet(DUDE_KEY, dudeAsset , {
       frameWidth: 32,
       frameHeight: 48,
@@ -75,14 +105,9 @@ class GameScene extends Phaser.Scene {
         //collision voiture avec joueur
         this.physics.add.collider(this.player, this.coffre,this.resetCoins,null,this);
         this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
-        this.physics.add.overlap(
-          this.player,
-          this.stars,
-          this.collectStar,
-          null,
-          this
-        );
-  
+        this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
+        const platforms = this.createPlatforms();
+        this.physics.add.collider(this.player, platforms);
   }
 
   update() {
@@ -90,7 +115,7 @@ class GameScene extends Phaser.Scene {
     if (this.gameOver) {
       return;
     }
-
+    
     //Movement JOUEUR
     this.player.setVelocityX(0);
     this.player.setVelocityY(0);
@@ -238,6 +263,12 @@ class GameScene extends Phaser.Scene {
     /*stars.children.iterate((child) => {
       child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
     });*/
+    this.anims.create({
+      key: "piece",
+      frames: this.anims.generateFrameNumbers(STAR_KEY, { start: 1, end: 8 }),
+      frameRate: 10,
+      repeat: -1,
+    });
 
     return stars;
   }
@@ -280,6 +311,23 @@ class GameScene extends Phaser.Scene {
     console.log("score:", scorF);
     this.scoreReel.add(scorF);
   }
+
+  createPlatforms() {
+    const platforms = this.physics.add.staticGroup();
+
+    platforms.create(114, 169, MUR1);
+    platforms.create(508, 169, 'mur2');
+    platforms.create(862, 169, 'mur3');
+    platforms.create(62, 380, 'mur4');
+    platforms.create(296, 380, 'mur5');
+    platforms.create(721, 380, 'mur5');
+    platforms.create(849, 380, 'mur5');
+    platforms.create(192, 487, 'mur8');
+    platforms.create(502, 487, 'mur9');
+    platforms.create(112, 645, 'mur10');
+    platforms.create(665, 645, 'mur11');
+    return platforms;
+  }  
 
 }
 
