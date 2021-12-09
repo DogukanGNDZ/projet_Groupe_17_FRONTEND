@@ -9,6 +9,8 @@ const VOITUREJG_KEY = "voitureJG";
 const VOITUREJD_KEY = "voitureJD";
 const COFFRE ='coffre';
 const MUR1='mur1';
+const BUS='busDroite';
+const LAMBO='lambo';
 
 import ScoreLabel from "./ScoreLabel.js";
 import ScoreLabel2 from "./ScoreLabel2.js";
@@ -20,8 +22,10 @@ import voitureRougeGAsset from "../../assets/voitureRougeGauche.png";
 import voitureRougeDAsset from "../../assets/voitureRougeDroite.png";
 import voitureJauneGAsset from "../../assets/voitureJauneGauche.png";
 import voitureJauneDAsset from "../../assets/voitureJauneDroite.png";
+import busDroite from "../../assets/busDroite.png";
 import dudeAsset from "../../assets/dude.png";
 import coffre from "../../assets/coffre.png";
+import lambo from "../../assets/lamboGauche.png";
 
 //import des murs
 import mur1 from "../../assets/mur1.png";
@@ -71,7 +75,9 @@ class GameScene extends Phaser.Scene {
     this.load.image(VOITURERD_KEY, voitureRougeDAsset);
     this.load.image(VOITUREJG_KEY, voitureJauneGAsset);
     this.load.image(VOITUREJD_KEY, voitureJauneDAsset);
-    
+    this.load.image(BUS, busDroite);
+    this.load.image(LAMBO, lambo);
+
     this.load.spritesheet(STAR_KEY, starAsset , {
       frameWidth: 15,
       frameHeight: 48,
@@ -123,11 +129,11 @@ class GameScene extends Phaser.Scene {
         //this.timedEvent = this.time.addEvent({ delay: 2850, callback: this.createMechants6, callbackScope: this, loop: true });
         //LIGNE 5
         this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan6, callbackScope: this, loop: 0 });
-        
+        this.timedEvent = this.time.addEvent({ delay: 7000, callback: this.createMechants7, callbackScope: this, loop: true });
         
         //collision voiture avec joueur
         this.physics.add.collider(this.player, this.coffre,this.resetCoins,null,this);
-        //this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
+        this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
         this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
         const platforms = this.createPlatforms();
         this.physics.add.collider(this.player, platforms);
@@ -228,7 +234,7 @@ class GameScene extends Phaser.Scene {
 
   createMechants4(){
     //LIGNE 3 
-    const mechant = this.physics.add.sprite(0, 435, VOITURERD_KEY);
+    const mechant = this.physics.add.sprite(-50, 435, BUS);
     mechant.setCollideWorldBounds(false);
     mechant.setVelocityX(160);
     this.mechants.add(mechant);
@@ -261,6 +267,16 @@ class GameScene extends Phaser.Scene {
     const mechant = this.physics.add.sprite(1000, 222, VOITURERG_KEY);
     mechant.setCollideWorldBounds(false);
     mechant.setVelocityX(-170);
+    this.mechants.add(mechant);
+    return mechant;
+    
+  }
+
+  createMechants7(){
+    //LIGNE 7
+    const mechant = this.physics.add.sprite(1000, 122, LAMBO);
+    mechant.setCollideWorldBounds(false);
+    mechant.setVelocityX(-870);
     this.mechants.add(mechant);
     return mechant;
     
@@ -374,7 +390,7 @@ class GameScene extends Phaser.Scene {
 
   //LIGNE 3
   spwan4() {
-    let delay4 = Phaser.Math.Between(1500, 3000);
+    let delay4 = Phaser.Math.Between(3500, 4000);
     this.time.addEvent({ delay: delay4, callback: this.createMechants4, callbackScope: this, loop: 0 });
     this.time.addEvent({ delay: delay4, callback: this.spwan4, callbackScope: this, loop: 0 })
   }
