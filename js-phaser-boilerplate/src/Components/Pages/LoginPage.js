@@ -22,12 +22,12 @@ let login =`<head>
             <h3>Log In</h3>
         </div>
         <div class="card-body">
-            <form id = "formlogin>
+            <form id ="formlogin">
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input id="username" type="text" class="form-control" placeholder="username">
+                    <input id="email" type="text" class="form-control" placeholder="email">
                     
                 </div>
                 <div class="input-group form-group">
@@ -69,11 +69,11 @@ function LoginPage() {
 
 const onLogin = (e) => {
     e.preventDefault();
-    let email = document.getElementById("username");
+    let email = document.getElementById("email");
     let password = document.getElementById("password");
   
     let user = {
-      username: document.getElementById("username").value,
+      email: document.getElementById("email").value,
       password: document.getElementById("password").value,
     };
   

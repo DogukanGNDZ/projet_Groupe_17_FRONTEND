@@ -22,7 +22,7 @@ let signup =`<head>
             <h3>Sign Up</h3>
         </div>
         <div class="card-body">
-            <form>
+            <form id="formsignup">
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
@@ -49,6 +49,51 @@ let signup =`<head>
 function SignUpPage() {
     let page = document.querySelector("#page");
     page.innerHTML = signup;
+    let registerForm = document.querySelector("#formsignup");
+    console.log(registerForm);
+    registerForm.addEventListener("submit", onRegister);
+    const user = getUserSessionData();
+    if (user) {
+        // re-render the navbar for the authenticated user
+        console.log("je suis connecté !");
+        RedirectUrl("/game");
+        Navbar(user);
+    } else {
+        loginForm.addEventListener("submit", onRegister);
+    }
+
+    const onRegister = (e) => {
+        e.preventDefault();
+        let user = {
+          username: document.getElementById("username").value,
+          email: document.getElementById("emailRegister").value,
+          password: document.getElementById("passwordRegister").value,
+        };
+      
+        fetch(API_URL + "users/", {
+          method: "POST",
+          body: JSON.stringify(user),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => {
+            if (!response.ok) throw new Error("Error code : " + response.status + " : " + response.statusText);
+            return response.json();
+          })
+          .then((data) => onUserRegistration(data))
+          .catch((err) => onError(err));
+      };
+      
+      const onUserRegistration = (userData) => {
+        console.log("onUserRegistration", userData);
+        const user = { ...userData, isAutenticated: true };
+        setUserSessionData(user);
+        Navbar();
+        RedirectUrl("/game");
+        Router();
+      };
 }
+
 
 export default SignUpPage;
