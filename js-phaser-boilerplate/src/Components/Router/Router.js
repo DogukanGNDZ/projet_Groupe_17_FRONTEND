@@ -4,11 +4,7 @@ import LogoutComponent from "../Pages/LogoutComponent";
 import AboutUsPage from "../Pages/AboutUsPage";
 import GamePage from "../Pages/GamePage";
 import LoginPage from "../Pages/LoginPage";
-<<<<<<< HEAD
 import SignUpPage from "../Pages/SignUpPage";
-=======
-import SingUpPage from "../Pages/SignUpPage"
->>>>>>> 1383dfb2e9127a292ad1fa922eb53166415f995d
 
 
 // Configure your routes here
@@ -18,11 +14,7 @@ const routes = {
   "/login": LoginPage,
   "/logout": LogoutComponent,
   "/aboutUsPage": AboutUsPage,
-<<<<<<< HEAD
   "/signup": SignUpPage
-=======
-  "/signup": SingUpPage
->>>>>>> 1383dfb2e9127a292ad1fa922eb53166415f995d
 };
 
 /**
