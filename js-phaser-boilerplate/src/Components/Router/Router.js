@@ -4,6 +4,7 @@ import LogoutComponent from "../Pages/LogoutComponent";
 import AboutUsPage from "../Pages/AboutUsPage";
 import GamePage from "../Pages/GamePage";
 import LoginPage from "../Pages/LoginPage";
+import SignUpPage from "../Pages/SignUpPage";
 
 
 // Configure your routes here
@@ -12,7 +13,8 @@ const routes = {
   "/game": GamePage,
   "/login": LoginPage,
   "/logout": LogoutComponent,
-  "/aboutUsPage": AboutUsPage
+  "/aboutUsPage": AboutUsPage,
+  "/signup": SignUpPage
 };
 
 /**
