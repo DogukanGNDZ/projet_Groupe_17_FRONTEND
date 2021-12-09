@@ -127,7 +127,7 @@ class GameScene extends Phaser.Scene {
         
         //collision voiture avec joueur
         this.physics.add.collider(this.player, this.coffre,this.resetCoins,null,this);
-        //this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
+        this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
         this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
         const platforms = this.createPlatforms();
         this.physics.add.collider(this.player, platforms);
