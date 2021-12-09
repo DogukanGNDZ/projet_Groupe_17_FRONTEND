@@ -2,7 +2,6 @@ import Phaser from "phaser";
 const GROUND_KEY = "ground";
 const DUDE_KEY = "dude";
 const STAR_KEY = "star";
-const BOMB_KEY = "bomb";
 const VOITURERG_KEY = "voitureRG";
 const VOITURERD_KEY = "voitureRD";
 const VOITUREJG_KEY = "voitureJG";
@@ -14,7 +13,6 @@ const LAMBO='lambo';
 
 import ScoreLabel from "./ScoreLabel.js";
 import ScoreLabel2 from "./ScoreLabel2.js";
-import BombSpawner from "./BombSpawner.js";
 import skyAsset from "../../assets/back.png";
 import platformAsset from "../../assets/platform.png";
 import starAsset from "../../assets/coin16x16.png";
@@ -59,6 +57,7 @@ class GameScene extends Phaser.Scene {
     this.load.image("sky", skyAsset);
     this.load.image(COFFRE, coffre);
     this.load.image(GROUND_KEY, platformAsset);
+    
     //charge mur
     this.load.image(MUR1, mur1);
     this.load.image("mur2", mur2);
@@ -89,8 +88,7 @@ class GameScene extends Phaser.Scene {
   }
 
   create() {
-
-        
+        //creation personnage, coffre et fond du jeux
         this.add.sprite(500,400,'sky');
         this.coffre = this.createCoffre();
         this.Scene = "sky";
@@ -196,7 +194,7 @@ class GameScene extends Phaser.Scene {
     const coff = this.physics.add.sprite(500,780,COFFRE);
     coff.setVelocityX(0);
     coff.setVelocityY(0);
-    coff.setBounceX(0.1);
+    coff.setBounceX(0.3);
     coff.setCollideWorldBounds(true);
     return coff;
   }
@@ -275,11 +273,6 @@ class GameScene extends Phaser.Scene {
   hitVoiture() {
     //this.scoreLabel2.setText("GAME OVER : ( \nYour Score = " + this.scoreLabel2.score);
     this.physics.pause();
-
-    //player.setTint(0xff0000);
-
-    //player.anims.play("turn");
-
     this.gameOver = true;
   }
   createStars() {
@@ -289,9 +282,6 @@ class GameScene extends Phaser.Scene {
       setXY: { x: 200, y: 18, stepX: 255 },
     });
 
-    /*stars.children.iterate((child) => {
-      child.setBounceY(Phaser.Math.FloatBetween(0.4, 0.8));
-    });*/
     this.anims.create({
       key: "piece",
       frames: this.anims.generateFrameNumbers(STAR_KEY, { start: 1, end: 8 }),
@@ -380,7 +370,7 @@ class GameScene extends Phaser.Scene {
 
   //LIGNE 3
   spwan4() {
-    let delay4 = Phaser.Math.Between(3500, 4000);
+    let delay4 = Phaser.Math.Between(3500, 4500);
     this.time.addEvent({ delay: delay4, callback: this.createMechants4, callbackScope: this, loop: 0 });
     this.time.addEvent({ delay: delay4, callback: this.spwan4, callbackScope: this, loop: 0 })
   }
