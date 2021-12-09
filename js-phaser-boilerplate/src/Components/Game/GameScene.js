@@ -244,7 +244,7 @@ class GameScene extends Phaser.Scene {
   }
 
   hitVoiture() {
-    //this.scoreLabel.setText("GAME OVER : ( \nYour Score = " + this.scoreLabel.score);
+    //this.scoreLabel2.setText("GAME OVER : ( \nYour Score = " + this.scoreLabel2.score);
     this.physics.pause();
 
     //player.setTint(0xff0000);
