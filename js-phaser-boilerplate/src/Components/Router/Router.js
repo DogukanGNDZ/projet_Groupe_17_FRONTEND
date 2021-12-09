@@ -1,5 +1,4 @@
 import HomePage from "../Pages/HomePage";
-import LoginRegisterPage from "../Pages/LoginRegisterPage";
 import LogoutComponent from "../Pages/LogoutComponent";
 import AboutUsPage from "../Pages/AboutUsPage";
 import GamePage from "../Pages/GamePage";
