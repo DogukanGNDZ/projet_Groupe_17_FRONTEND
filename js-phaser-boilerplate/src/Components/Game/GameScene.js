@@ -92,19 +92,42 @@ class GameScene extends Phaser.Scene {
         this.cursors = this.input.keyboard.createCursorKeys();
         this.mechants = this.add.group(); 
         this.stars = this.createStars();
+        
         //affichage score
         this.scoreLabel = this.createScoreLabel(16, 16, 0);
         this.scoreReel = this.createScoreLabel2(16, 40, 0);
+        
+        
         //apparition des voitures
-        this.timedEvent = this.time.addEvent({ delay: 2000, callback: this.createMechants, callbackScope: this, loop: true });
-        this.timedEvent = this.time.addEvent({ delay: 2000, callback: this.createMechants2, callbackScope: this, loop: true });
-        this.timedEvent = this.time.addEvent({ delay: 2000, callback: this.createMechants3, callbackScope: this, loop: true });
-        this.timedEvent = this.time.addEvent({ delay: 1500, callback: this.createMechants4, callbackScope: this, loop: true });
-        this.timedEvent = this.time.addEvent({ delay: 1500, callback: this.createMechants5, callbackScope: this, loop: true });
-        this.timedEvent = this.time.addEvent({ delay: 1750, callback: this.createMechants6, callbackScope: this, loop: true });
+        
+        //this.timedEvent = this.time.addEvent({ delay: 2700, callback: this.createMechants, callbackScope: this, loop: true });
+        //LIGNE 6
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan, callbackScope: this, loop: 0 });
+        
+        //this.timedEvent = this.time.addEvent({ delay: 2700, callback: this.createMechants2, callbackScope: this, loop: true });
+        //LIGNE 1
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan2, callbackScope: this, loop: 0 });
+        
+        //this.timedEvent = this.time.addEvent({ delay: 2400, callback: this.createMechants3, callbackScope: this, loop: true });
+        //LIGNE 2
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan3, callbackScope: this, loop: 0 });
+        
+        //this.timedEvent = this.time.addEvent({ delay: 2500, callback: this.createMechants4, callbackScope: this, loop: true });
+        //LIGNE 3
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan4, callbackScope: this, loop: 0 });
+        
+        //this.timedEvent = this.time.addEvent({ delay: 2400, callback: this.createMechants5, callbackScope: this, loop: true });
+        //LIGNE 4
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan5, callbackScope: this, loop: 0 });
+        
+        //this.timedEvent = this.time.addEvent({ delay: 2850, callback: this.createMechants6, callbackScope: this, loop: true });
+        //LIGNE 5
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan6, callbackScope: this, loop: 0 });
+        
+        
         //collision voiture avec joueur
         this.physics.add.collider(this.player, this.coffre,this.resetCoins,null,this);
-        this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
+        //this.physics.add.collider(this.player, this.mechants,this.hitVoiture,null,this);
         this.physics.add.overlap(this.player, this.stars, this.collectStar, null, this);
         const platforms = this.createPlatforms();
         this.physics.add.collider(this.player, platforms);
@@ -184,7 +207,7 @@ class GameScene extends Phaser.Scene {
  
 
   createMechants2(){
-    //ligne 1
+    //LIGNE 1
     const mechant = this.physics.add.sprite(1000, 595, VOITURERG_KEY);
     mechant.setCollideWorldBounds(false);
     mechant.setVelocityX(-200);
@@ -194,50 +217,50 @@ class GameScene extends Phaser.Scene {
   }
 
   createMechants3(){
-    //ligne 2
+    //LIGNE 2
     const mechant = this.physics.add.sprite(0, 540, VOITUREJD_KEY);
     mechant.setCollideWorldBounds(false);
-    mechant.setVelocityX(200);
+    mechant.setVelocityX(175);
     this.mechants.add(mechant);
     return mechant;
     
   }
 
   createMechants4(){
-    //ligne3 
+    //LIGNE 3 
     const mechant = this.physics.add.sprite(0, 435, VOITURERD_KEY);
     mechant.setCollideWorldBounds(false);
-    mechant.setVelocityX(250);
+    mechant.setVelocityX(160);
     this.mechants.add(mechant);
     return mechant;
     
   }
 
   createMechants5(){
-    //ligne 4
+    //LIGNE 4
     const mechant = this.physics.add.sprite(1000, 330, VOITURERG_KEY);
     mechant.setCollideWorldBounds(false);
-    mechant.setVelocityX(-250);
+    mechant.setVelocityX(-150);
     this.mechants.add(mechant);
     return mechant;
     
   }
 
   createMechants6(){
-    //ligne 5
-    const mechant = this.physics.add.sprite(1000, 275, VOITUREJG_KEY);
+    //LIGNE 5
+    const mechant = this.physics.add.sprite(0, 275, VOITUREJD_KEY);
     mechant.setCollideWorldBounds(false);
-    mechant.setVelocityX(-250);
+    mechant.setVelocityX(130);
     this.mechants.add(mechant);
     return mechant;
     
   }
 
   createMechants(){
-    //ligne 6
-    const mechant = this.physics.add.sprite(0, 222, VOITURERD_KEY);
+    //LIGNE 6
+    const mechant = this.physics.add.sprite(1000, 222, VOITURERG_KEY);
     mechant.setCollideWorldBounds(false);
-    mechant.setVelocityX(200);
+    mechant.setVelocityX(-170);
     this.mechants.add(mechant);
     return mechant;
     
@@ -327,8 +350,50 @@ class GameScene extends Phaser.Scene {
     platforms.create(112, 645, 'mur10');
     platforms.create(665, 645, 'mur11');
     return platforms;
-  }  
+  }
+  //LIGNE 1 
+  spwan2() {
+    let delay2 = Phaser.Math.Between(1500, 3000);
+    this.time.addEvent({ delay: delay2, callback: this.createMechants2, callbackScope: this, loop: 0 });
+    this.time.addEvent({ delay: delay2, callback: this.spwan2, callbackScope: this, loop: 0 })
+  }
+
+  //LIGNE 6
+  spwan() {
+    let delay1 = Phaser.Math.Between(1500, 3000);
+    this.time.addEvent({ delay: delay1, callback: this.createMechants, callbackScope: this, loop: 0 });
+    this.time.addEvent({ delay: delay1, callback: this.spwan, callbackScope: this, loop: 0 })
+  }
+
+  //LIGNE 2
+  spwan3() {
+    let delay3 = Phaser.Math.Between(1500, 3000);
+    this.time.addEvent({ delay: delay3, callback: this.createMechants3, callbackScope: this, loop: 0 });
+    this.time.addEvent({ delay: delay3, callback: this.spwan3, callbackScope: this, loop: 0 })
+  }
+
+  //LIGNE 3
+  spwan4() {
+    let delay4 = Phaser.Math.Between(1500, 3000);
+    this.time.addEvent({ delay: delay4, callback: this.createMechants4, callbackScope: this, loop: 0 });
+    this.time.addEvent({ delay: delay4, callback: this.spwan4, callbackScope: this, loop: 0 })
+  }
+
+  //LIGNE 4
+  spwan5() {
+    let delay5 = Phaser.Math.Between(1500, 3000);
+    this.time.addEvent({ delay: delay5, callback: this.createMechants5, callbackScope: this, loop: 0 });
+    this.time.addEvent({ delay: delay5, callback: this.spwan5, callbackScope: this, loop: 0 })
+  }
+
+  //LIGNE 5
+  spwan6() {
+    let delay6 = Phaser.Math.Between(1500, 3000);
+    this.time.addEvent({ delay: delay6, callback: this.createMechants6, callbackScope: this, loop: 0 });
+    this.time.addEvent({ delay: delay6, callback: this.spwan6, callbackScope: this, loop: 0 })
+  }
 
 }
+
 
 export default GameScene;
