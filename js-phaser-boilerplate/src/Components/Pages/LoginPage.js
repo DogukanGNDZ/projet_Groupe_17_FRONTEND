@@ -22,19 +22,19 @@ let login =`<head>
             <h3>Log In</h3>
         </div>
         <div class="card-body">
-            <form>
+            <form id = "formlogin>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="username">
+                    <input id="username" type="text" class="form-control" placeholder="username">
                     
                 </div>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="password">
+                    <input id="password" type="password" class="form-control" placeholder="password">
                 </div>
                 <div class="row align-items-center remember">
                     <input type="checkbox">Remember Me
@@ -60,6 +60,66 @@ let login =`<head>
 function LoginPage() {
     let page = document.querySelector("#page");
     page.innerHTML = login;
+    let loginForm = document.querySelector("#formLogin");
+    console.log(loginForm);
+    const user = getUserSessionData();
+  if (user) {
+    // re-render the navbar for the authenticated user
+    console.log("je suis connecté !");
+    RedirectUrl("/game");
+    Navbar(user);
+  } else {
+    loginForm.addEventListener("submit", onLogin);
+  }
 }
+
+const onLogin = (e) => {
+    e.preventDefault();
+    let email = document.getElementById("username");
+    let password = document.getElementById("password");
+  
+    let user = {
+      username: document.getElementById("username").value,
+      password: document.getElementById("password").value,
+    };
+  
+    fetch(API_URL + "users/login", {
+      method: "POST",
+      body: JSON.stringify(user),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok)
+          throw new Error(
+            "Error code : " + response.status + " : " + response.statusText
+          );
+        return response.json();
+      })
+      .then((data) => onUserLogin(data))
+      .catch((err) => onError(err));
+  };
+  
+  const onUserLogin = (userData) => {
+    console.log("logé");
+    console.log("onUserLogin:", userData);
+    console.log(userData);
+    const user = { ...userData, isAutenticated: true };
+    setUserSessionData(user);
+    Navbar();
+    RedirectUrl("/game");
+    Router();
+  };
+  
+  const onError = (err) => {
+    let messageBoard = document.querySelector("#messageBoard");
+    let errorMessage = "";
+    if (err.message.includes("401")) errorMessage = "Wrong username or password.";
+    else errorMessage = err.message;
+    messageBoard.innerText = errorMessage;
+    messageBoard.classList.add("d-block");
+    console.log(messageBoard);
+  };
 
 export default LoginPage;
