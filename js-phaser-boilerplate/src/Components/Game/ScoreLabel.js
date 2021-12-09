@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 
-const formatScore = (score) => `Piece récupérer: ${score}`;
+const formatScore = (score) => `Pièces récupérées: ${score}`;
 
 export default class ScoreLabel extends Phaser.GameObjects.Text {
   constructor(scene, x, y, score, style) {
