@@ -127,8 +127,6 @@ class GameScene extends Phaser.Scene {
   update() {
     // End GAME
     if (this.gameOver) {
-      
-      this.scene.restart(); // restart current scene
       return;
     }
     
