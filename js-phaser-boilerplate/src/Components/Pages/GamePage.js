@@ -6,13 +6,19 @@ var game;
 const GamePage = () => {
   let phaserGame = `
 <div id="gameDiv" class="d-flex justify-content-center my-3">
-</div>`;
+</div>
+<br>
+<div id="gameDiv"></div>
+<button id="playAgain" type="button" class="btn btn-danger btn-lg btn-block">Play Again</button>`;
 
+let playAgain = document.querySelector("#playAgain");
+  
+  
   let page = document.querySelector("#page");
   page.innerHTML = phaserGame;
 
   let config = {
-    type: Phaser.AUTO,
+    type: Phaser.CANVAS,
     width: 1000,
     height: 800,
     physics: {
@@ -31,6 +37,12 @@ const GamePage = () => {
   // therefore destroy any started game prior to recreate it
   if (game) game.destroy(true);
   game = new Phaser.Game(config);
+  
+  playAgain.addEventListener("click", onPlayAgain);  
+
+  const onPlayAgain = () =>{
+    location.reload();
+  }
 };
 
 export default GamePage;

@@ -2,11 +2,11 @@ import { RedirectUrl } from "../Router/Router";
 
 let aboutUsPage = `<div class="container-fluid panneau-aboutus">
   <ul class="cadre-panneau-aboutus">
-    <li>a définir</li>
-    <li> a complèter</li>
-    <li> a complèter</li>
-    <li> a complèter</li>     
-    <li> a complèter</li>
+    
+     Bonjour,<br>
+     Nous sommes 4 étudiants en informatique de gestion,<br>
+     qui avons eu l'idée de faire un jeu pour notre projet de JavaScript.<br>     
+     Contact : <br>
   </ul>
   </div>`;
 

@@ -13,15 +13,15 @@ const LAMBO='lambo';
 
 import ScoreLabel from "./ScoreLabel.js";
 import ScoreLabel2 from "./ScoreLabel2.js";
-import skyAsset from "../../assets/back.png";
+import skyAsset from "../../assets/sky.png";
 import platformAsset from "../../assets/platform.png";
-import starAsset from "../../assets/coin16x16.png";
-import voitureRougeGAsset from "../../assets/voitureRougeGauche.png";
-import voitureRougeDAsset from "../../assets/voitureRougeDroite.png";
+import starAsset from "../../assets/coin.png";
+import voitureRougeGAsset from "../../assets/voiture_gauche.png";
+import voitureRougeDAsset from "../../assets/voiture_droite.png";
 import voitureJauneGAsset from "../../assets/voitureJauneGauche.png";
 import voitureJauneDAsset from "../../assets/voitureJauneDroite.png";
 import busDroite from "../../assets/busDroite.png";
-import dudeAsset from "../../assets/dude.png";
+import dudeAsset from "../../assets/Hero.png";
 import coffre from "../../assets/coffre.png";
 import lambo from "../../assets/lamboGauche.png";
 
@@ -77,13 +77,10 @@ class GameScene extends Phaser.Scene {
     this.load.image(BUS, busDroite);
     this.load.image(LAMBO, lambo);
 
-    this.load.spritesheet(STAR_KEY, starAsset , {
-      frameWidth: 15,
-      frameHeight: 48,
-    });
+    this.load.image(STAR_KEY,starAsset);
     this.load.spritesheet(DUDE_KEY, dudeAsset , {
       frameWidth: 32,
-      frameHeight: 48,
+      frameHeight: 41,
     });
   }
 
@@ -130,6 +127,8 @@ class GameScene extends Phaser.Scene {
   update() {
     // End GAME
     if (this.gameOver) {
+      
+      this.scene.restart(); // restart current scene
       return;
     }
     
@@ -194,7 +193,7 @@ class GameScene extends Phaser.Scene {
     const coff = this.physics.add.sprite(500,780,COFFRE);
     coff.setVelocityX(0);
     coff.setVelocityY(0);
-    coff.setBounceX(0.3);
+    coff.setBounceX(0.9);
     coff.setCollideWorldBounds(true);
     return coff;
   }
@@ -279,7 +278,7 @@ class GameScene extends Phaser.Scene {
     const stars = this.physics.add.group({
       key: STAR_KEY,
       repeat: 2,
-      setXY: { x: 200, y: 18, stepX: 255 },
+      setXY: { x: 200, y: 55, stepX: 255 },
     });
 
     this.anims.create({
@@ -322,7 +321,7 @@ class GameScene extends Phaser.Scene {
     if (this.stars.countActive(true) === 0) {
       //  A new batch of stars to collect
       this.stars.children.iterate((child) => {
-        child.enableBody(true, child.x,12, true, true);
+        child.enableBody(true, child.x,55, true, true);
       });
     }
     const scorF= this.scoreLabel.getScore();
