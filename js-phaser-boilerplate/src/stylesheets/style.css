@@ -61,3 +61,18 @@ input:focus{
 .links a{
     margin-left: 4px;
 }
+
+/*
+--About us--
+*/
+
+.cadre-panneau-aboutus {
+    position: absolute;
+    list-style: none;
+    justify-content: center;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%, -50%);
+    padding: 5%;
+  }
+  
