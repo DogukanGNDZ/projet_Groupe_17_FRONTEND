@@ -41,6 +41,11 @@ let signup =`<head>
                 </div>
             </form>
         </div>
+        <div class="card-footer">
+        <div class="d-flex justify-content-center links">
+        This website respect the General Data Protection Regulation (GDPR)
+        </div>
+    </div>
     </div>
 </div>
 </div>
