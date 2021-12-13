@@ -1,5 +1,5 @@
 import Navbar from "../Navbar/Navbar";
-import { Router } from "../Router/Router";
+import { Router, Redirect } from "../Router/Router";
 import { getUserSessionData, setUserSessionData } from "../utils/session";
 import { API_URL } from "../utils/server";
 
@@ -52,7 +52,7 @@ function LoginPage() {
   if (user) {
     // re-render the navbar for the authenticated user
     console.log("je suis connecté !");
-    RedirectUrl("/game");
+    Redirect("/game");
     Navbar(user);
   } else {
     loginForm.addEventListener("submit", onLogin);
@@ -93,7 +93,7 @@ const onLogin = (e) => {
     const user = { ...userData, isAutenticated: true };
     setUserSessionData(user);
     Navbar();
-    RedirectUrl("/game");
+    Redirect("/game");
     Router();
   };
   

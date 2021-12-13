@@ -1,7 +1,8 @@
 import Navbar from "../Navbar/Navbar";
-import { Router } from "../Router/Router";
+import { Router,Redirect} from "../Router/Router";
 import { getUserSessionData, setUserSessionData } from "../utils/session";
 import { API_URL } from "../utils/server";
+
 
 let signup =`<head>
 <title>Login Page</title>
@@ -19,17 +20,25 @@ let signup =`<head>
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
-                    <input type="text" class="form-control" placeholder="username">
+                    <input id="username" type="text" class="form-control" placeholder="username">
+                    
+                </div>
+                <div class="input-group form-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                    <input id="email" type="text" class="form-control" placeholder="email">
                     
                 </div>
                 <div class="input-group form-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
-                    <input type="password" class="form-control" placeholder="password">
+                    <input id="password" type="password" class="form-control" placeholder="password">
                 </div>
                 <div class="form-group">
-                    <input type="submit" value="Sign up" class="btn float-right login_btn">
+                <button class="buttonRegister btn btn-warning" id="buttonRegister type="submit">Register</button>
+                
                 </div>
             </form>
         </div>
@@ -40,6 +49,7 @@ let signup =`<head>
     </div>
     </div>
 </div>
+<div class="alert alert-danger mt 2 d-none" id="messageBoard"> </div><span id="errorMessage"> </span>
 </div>
 </body>`
 
@@ -53,18 +63,20 @@ function SignUpPage() {
     if (user) {
         // re-render the navbar for the authenticated user
         console.log("je suis connecté !");
-        RedirectUrl("/game");
+        Redirect("/game");
         Navbar(user);
     } else {
+        console.log("bon chemin");
         registerForm.addEventListener("submit", onRegister);
     }
 
-    const onRegister = (e) => {
+    function onRegister(e) {
         e.preventDefault();
+        console.log("coucou");
         let user = {
           username: document.getElementById("username").value,
-          email: document.getElementById("emailRegister").value,
-          password: document.getElementById("passwordRegister").value,
+          email: document.getElementById("email").value,
+          password: document.getElementById("password").value,
         };
       
         fetch(API_URL + "users/", {
@@ -82,14 +94,25 @@ function SignUpPage() {
           .catch((err) => onError(err));
       };
       
-      const onUserRegistration = (userData) => {
+      function onUserRegistration(userData) {
         console.log("onUserRegistration", userData);
         const user = { ...userData, isAutenticated: true };
         setUserSessionData(user);
         Navbar();
-        RedirectUrl("/game");
+        Redirect("/game");
         Router();
       };
+
+      function onError(err){
+        let messageBoard = document.querySelector("#messageBoard");
+        let errorMessage = "";
+        if (err.message.includes("401")) errorMessage = "Wrong username or password.";
+        else errorMessage = err.message;
+        messageBoard.innerText = errorMessage;
+        messageBoard.classList.add("d-block");
+        console.log(messageBoard);
+      };
+
 }
 
 
