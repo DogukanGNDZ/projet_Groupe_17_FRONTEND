@@ -127,7 +127,8 @@ class GameScene extends Phaser.Scene {
   update() {
     // End GAME
     if (this.gameOver) {
-      
+      this.saveNumberOfGame();
+
       this.scene.restart(); // restart current scene
       return;
     }
@@ -387,6 +388,40 @@ class GameScene extends Phaser.Scene {
     this.time.addEvent({ delay: delay6, callback: this.createMechants6, callbackScope: this, loop: 0 });
     this.time.addEvent({ delay: delay6, callback: this.spwan6, callbackScope: this, loop: 0 })
   }
+
+  saveNumberOfGame(){
+    let user = getUserSessionData();
+    fetch(API_URL + 'users/getNumberOfGames/', { headers: { "Authorization": user.token } })
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        fetch(API_URL + "users/setNumberOfGames/", {
+          headers: {
+            "Authorization": user.token,
+          },
+        }).then((response) => {
+          if (!response.ok)
+            throw new Error(
+              "Error: " + response.status + " : " + response.statusText
+            );
+          return response.json();
+        }).catch((err) => this.onError(err));
+      })
+  }
+
+  getMaxscore(){
+    
+  }
+  
+  onError(err) {
+    let page = document.querySelector(".page");
+    let errorMessage = "";
+    if (err.message.includes("409"))
+      errorMessage = "ERROR";
+    else errorMessage = err.message;
+    page.innerText = errorMessage;
+  };
 
 }
 
