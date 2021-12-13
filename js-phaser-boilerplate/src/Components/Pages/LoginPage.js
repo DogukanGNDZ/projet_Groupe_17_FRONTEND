@@ -1,18 +1,10 @@
 import Navbar from "../Navbar/Navbar";
-import { Router } from "../Router/Router";
+import { Router, Redirect } from "../Router/Router";
+import { getUserSessionData, setUserSessionData } from "../utils/session";
+import { API_URL } from "../utils/server";
 
 let login =`<head>
 <title>Login Page</title>
-<!--Made with love by Mutiullah Samim -->
-
-<!--Bootsrap 4 CDN-->
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-<!--Fontawesome CDN-->
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
-
-<!--Custom styles-->
-<link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
 <div class="container">
@@ -54,13 +46,13 @@ let login =`<head>
 function LoginPage() {
     let page = document.querySelector("#page");
     page.innerHTML = login;
-    let loginForm = document.querySelector("#formLogin");
+    let loginForm = document.querySelector("#formlogin");
     console.log(loginForm);
     const user = getUserSessionData();
   if (user) {
     // re-render the navbar for the authenticated user
     console.log("je suis connecté !");
-    RedirectUrl("/game");
+    Redirect("/game");
     Navbar(user);
   } else {
     loginForm.addEventListener("submit", onLogin);
@@ -96,13 +88,12 @@ const onLogin = (e) => {
   };
   
   const onUserLogin = (userData) => {
-    console.log("logé");
     console.log("onUserLogin:", userData);
     console.log(userData);
     const user = { ...userData, isAutenticated: true };
     setUserSessionData(user);
     Navbar();
-    RedirectUrl("/game");
+    Redirect("/game");
     Router();
   };
   
