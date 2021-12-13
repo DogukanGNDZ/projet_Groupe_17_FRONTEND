@@ -128,8 +128,6 @@ class GameScene extends Phaser.Scene {
     // End GAME
     if (this.gameOver) {
       this.saveNumberOfGame();
-
-      this.scene.restart(); // restart current scene
       return;
     }
     

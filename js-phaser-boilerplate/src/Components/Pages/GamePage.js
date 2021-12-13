@@ -11,7 +11,6 @@ const GamePage = () => {
 <div id="gameDiv"></div>
 <button id="playAgain" type="button" class="btn btn-danger btn-lg btn-block">Play Again</button>`;
 
-let playAgain = document.querySelector("#playAgain");
   
   
   let page = document.querySelector("#page");
@@ -38,9 +37,11 @@ let playAgain = document.querySelector("#playAgain");
   if (game) game.destroy(true);
   game = new Phaser.Game(config);
   
+  let playAgain = document.querySelector("#playAgain");
+
   playAgain.addEventListener("click", onPlayAgain);  
 
-  const onPlayAgain = () =>{
+  function onPlayAgain(){
     location.reload();
   }
 };
