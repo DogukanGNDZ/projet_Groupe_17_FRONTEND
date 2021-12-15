@@ -49,6 +49,9 @@ const Navbar = () => {
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/aboutUsPage">About us</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/rank">Ranking</a>
+              </li>
             </ul>
           </div>
         </div>
