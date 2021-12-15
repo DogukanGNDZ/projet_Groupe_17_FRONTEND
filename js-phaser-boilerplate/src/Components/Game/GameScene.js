@@ -35,6 +35,8 @@ import mur8 from "../../assets/mur8.png";
 import mur9 from "../../assets/mur9.png";
 import mur10 from "../../assets/mur10.png";
 import mur11 from "../../assets/mur11.png";
+import { API_URL } from "../../../../../../demo jeu/frontend/js-projetFrontEnd/src/utils/server.js";
+import {getUserSessionData} from "../utils/session"
 
 class GameScene extends Phaser.Scene {
   constructor() {
@@ -126,7 +128,11 @@ class GameScene extends Phaser.Scene {
 
   update() {
     // End GAME
-    if (this.gameOver) {
+    if (this.gameOver) { 
+      let user = getUserSessionData();
+      if(this.scoreReel>user.maxscore){
+        this.setMaxScore(user.username, this.scoreReel);
+      }
       this.saveNumberOfGame();
       return;
     }
@@ -155,6 +161,22 @@ class GameScene extends Phaser.Scene {
       this.player.anims.play("turn");
     }
    
+  }
+
+  setMaxScore(username,maxscore){
+    fetch(API_URL + 'users/setMaxScore',{
+      method: "POST", 
+      body: JSON.stringify({username: username, score: maxscore}), 
+      headers: {
+          Authorization: user.token,
+          "Content-Type": "application/json",
+      },
+    })
+    .then((response) => {
+      if (!response.ok)
+          throw new Error("Error code : " + response.status + " : " + response.statusText);
+      return response.json();
+    });
   }
 
   createPlayer() {
@@ -404,22 +426,34 @@ class GameScene extends Phaser.Scene {
               "Error: " + response.status + " : " + response.statusText
             );
           return response.json();
-        }).catch((err) => this.onError(err));
+        }).catch((err) => {
+          let page = document.querySelector("#page");
+          let errorMessage = "";
+          if (err.message.includes("409"))
+            errorMessage = "ERROR";
+          else errorMessage = err.message;
+          page.innerText = errorMessage;
+        });
       })
   }
 
   getMaxscore(){
-    
+    let user =getUserSessionData();
+    fetch(API_URL + 'users/getMaxScore/', { headers: { "Authorization": user.token} })
+    .then(function (response){
+      return response.json();
+    })  
   }
   
-  onError(err) {
+  //don't work?
+  /*onError(err) {
     let page = document.querySelector(".page");
     let errorMessage = "";
     if (err.message.includes("409"))
       errorMessage = "ERROR";
     else errorMessage = err.message;
     page.innerText = errorMessage;
-  };
+  };*/
 
 }
 

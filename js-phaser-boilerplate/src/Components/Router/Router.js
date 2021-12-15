@@ -4,6 +4,7 @@ import AboutUsPage from "../Pages/AboutUsPage";
 import GamePage from "../Pages/GamePage";
 import LoginPage from "../Pages/LoginPage";
 import SignUpPage from "../Pages/SignUpPage";
+import RankScorePage from "../Pages/RankScorePage"
 
 
 // Configure your routes here
@@ -13,7 +14,8 @@ const routes = {
   "/login": LoginPage,
   "/logout": LogoutComponent,
   "/aboutUsPage": AboutUsPage,
-  "/signup": SignUpPage
+  "/signup": SignUpPage,
+  "/rank": RankScorePage
 };
 
 /**
