@@ -9,10 +9,10 @@ const RankScorePage = () => {
 
 const loadAllscore = async() => {
     let user = getUserSessionData();
-    await fetch(API_URL + 'users/maxscoreBoard', { headers: { "Authorization": user.token} }).then(function(response){
-        if(!response.ok){
-            throw new Error(response.status + " " + response.statusText);
-        }
+        await fetch(API_URL + 'users/maxscoreBoard', { headers: { "Authorization": user.token} }).then(function(response){
+            if(!response.ok){
+                throw new Error(response.status + " " + response.statusText);
+            }
         return response.json();
     }).then(function(reponse){
         let index = 1;

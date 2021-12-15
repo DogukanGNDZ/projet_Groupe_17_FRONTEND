@@ -130,10 +130,13 @@ class GameScene extends Phaser.Scene {
     // End GAME
     if (this.gameOver) { 
       let user = getUserSessionData();
-      if(this.scoreReel>user.maxscore){
+      let maxscoreUser = this.getMaxscore(user);
+      console.log(maxscoreUser);
+      if(this.scoreReel>maxscoreUser){
         this.setMaxScore(user.username, this.scoreReel);
       }
       this.saveNumberOfGame();
+      this.scene.stop();
       return;
     }
     
@@ -161,6 +164,17 @@ class GameScene extends Phaser.Scene {
       this.player.anims.play("turn");
     }
    
+  }
+
+  getMaxscore(user){
+    fetch(API_URL + 'users/getNumberOfGames/', { headers: { "Authorization": user.token } })
+      .then(function (response) {
+        return response.maxScore;
+      }).then((response) => {
+        if (!response.ok)
+            throw new Error("Error code : " + response.status + " : " + response.statusText);
+        return response.json();
+      });
   }
 
   setMaxScore(username,maxscore){
