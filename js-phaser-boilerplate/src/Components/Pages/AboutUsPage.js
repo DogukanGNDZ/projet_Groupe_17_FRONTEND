@@ -1,6 +1,6 @@
 import { RedirectUrl } from "../Router/Router";
 
-let aboutUsPage = `<div class="container-fluid panneau-aboutus">
+let aboutUsPage = `<div id="container-fluid panneau-aboutus">
   <ul class="cadre-panneau-aboutus">
     
      Bonjour,<br>
