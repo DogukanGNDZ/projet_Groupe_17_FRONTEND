@@ -104,19 +104,19 @@ class GameScene extends Phaser.Scene {
         //apparition des voitures
     
         //LIGNE 6
-        //this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan, callbackScope: this, loop: 0 });
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan, callbackScope: this, loop: 0 });
         //LIGNE 1
-        //this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan2, callbackScope: this, loop: 0 });
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan2, callbackScope: this, loop: 0 });
         //LIGNE 2
-        //this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan3, callbackScope: this, loop: 0 });
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan3, callbackScope: this, loop: 0 });
         //LIGNE 3
         this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan4, callbackScope: this, loop: 0 });
         //LIGNE 4
-        //this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan5, callbackScope: this, loop: 0 });
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan5, callbackScope: this, loop: 0 });
         //LIGNE 5
-        //this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan6, callbackScope: this, loop: 0 });
+        this.timedEvent = this.time.addEvent({ delay: 0, callback: this.spwan6, callbackScope: this, loop: 0 });
         //LIGNE 7
-        //this.timedEvent = this.time.addEvent({ delay: 7000, callback: this.createMechants7, callbackScope: this, loop: true });
+        this.timedEvent = this.time.addEvent({ delay: 7000, callback: this.createMechants7, callbackScope: this, loop: true });
         
         //collision voiture et pieces avec joueur
         this.physics.add.collider(this.player, this.coffre,this.resetCoins,null,this);
