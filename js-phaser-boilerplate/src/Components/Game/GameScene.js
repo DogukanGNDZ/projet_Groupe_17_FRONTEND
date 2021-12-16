@@ -35,7 +35,7 @@ import mur8 from "../../assets/mur8.png";
 import mur9 from "../../assets/mur9.png";
 import mur10 from "../../assets/mur10.png";
 import mur11 from "../../assets/mur11.png";
-import { API_URL } from "../../../../../../demo jeu/frontend/js-projetFrontEnd/src/utils/server.js";
+import { API_URL } from "../utils/server";
 import {getUserSessionData} from "../utils/session"
 
 class GameScene extends Phaser.Scene {
