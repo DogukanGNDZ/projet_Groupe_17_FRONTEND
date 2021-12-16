@@ -9,7 +9,7 @@ const RankScorePage = () => {
 
 const loadAllscore = async() => {
     let user = getUserSessionData();
-        await fetch(API_URL + 'users/maxscoreBoard', { headers: { "Authorization": user.token} }).then(function(response){
+        await fetch( '/api/users/maxscoreBoard', { headers: { "Authorization": user.token} }).then(function(response){
             if(!response.ok){
                 throw new Error(response.status + " " + response.statusText);
             }
@@ -17,15 +17,15 @@ const loadAllscore = async() => {
     }).then(function(reponse){
         let index = 1;
         let content = "";
-        reponse.mamaxscoreBoard.every(function(element){   
+        reponse.maxscoreBoard.every(function(element){   
             content += `
                 <tr>
                     <td class="w-25 text-warning">` + index++ +`</td>
                     <td class="w-50 text-warning">`+ element.username +`</td>
-                    <td class="w-25 text-warning">` + element.totalHighscore + `</td>
+                    <td class="w-25 text-warning">` + element.maxscore + `</td>
                 </tr>`;
             return true;                   
-        }).catch((err) => onError(err));
+        });
     
 
     let pageHtml = `
@@ -45,15 +45,6 @@ const loadAllscore = async() => {
     </div>`;
         page.innerHTML = pageHtml;
     });
-
-    function onError(err) {
-        let page = document.querySelector(".page");
-        let errorMessage = "";
-        if (err.message.includes("409"))
-          errorMessage = "ERROR";
-        else errorMessage = err.message;
-        page.innerText = errorMessage;
-      };
 
 }
 
