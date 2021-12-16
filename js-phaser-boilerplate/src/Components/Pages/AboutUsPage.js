@@ -9,6 +9,9 @@ let aboutUsPage = `<div class="container-fluid panneau-aboutus">
      Contact : <br>
      GUNDUZ Dogukan<br>
      dogukan.gunduz@student.vinci.be<br>
+
+     
+
   </ul>
   </div>`;
 
