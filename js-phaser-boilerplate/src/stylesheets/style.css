@@ -65,16 +65,17 @@ input:focus{
 
 
 /*HOME PAGE*/
-/*
+
 body {
     padding: 0;
     margin: 0;
     font-family: 'Poppins', sans-serif;
-    background: rgb(255, 255, 255);
+    background: rgb(36, 34, 34);
     height: 100vh;
     width: 100vw;
+    color: white;
   }
-*/
+
 
 span {
     position: absolute;
@@ -82,7 +83,7 @@ span {
     top: 50%;
     transform: translate(-50%, -50%);
     display: block;
-    color: #5dd8c4;
+    color: #45404e;
     font-size: 124px;
     letter-spacing: 8px;
     cursor: pointer;
@@ -133,7 +134,7 @@ span {
     left: -10px;
   } 
 
-
+/*
   body {
 	background: linear-gradient(-45deg, #C85C5C, #F9975D, #FBD148, #B2EA70);
 	background-size: 400% 400%;
@@ -152,6 +153,6 @@ span {
 		background-position: 0% 50%;
 	}
 }
-
+*/
 
   
