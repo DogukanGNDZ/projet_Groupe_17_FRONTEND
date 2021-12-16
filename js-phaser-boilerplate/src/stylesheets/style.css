@@ -65,7 +65,7 @@ input:focus{
 
 
 /*HOME PAGE*/
-
+/*
 body {
     padding: 0;
     margin: 0;
@@ -74,6 +74,7 @@ body {
     height: 100vh;
     width: 100vw;
   }
+*/
 
 span {
     position: absolute;
@@ -133,7 +134,24 @@ span {
   } 
 
 
+  body {
+	background: linear-gradient(-45deg, #C85C5C, #F9975D, #FBD148, #B2EA70);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+}
 
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
 
 
   
