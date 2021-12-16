@@ -75,15 +75,17 @@ const Navbar = () => {
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="#" data-uri="/">Regle du jeux</a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/aboutUsPage">About us</a>
-              </li>            
+                        
             </ul>
             <a class="navbar-brand " href="#" data-uri="/game">Watch out</a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+             
               <li class="nav-item">
                 <a class="nav-link" href="#" data-uri="/login">Log in</a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" data-uri="/aboutUsPage">About us</a>
+              </li> 
               
             </ul>
           </div>
