@@ -93,8 +93,7 @@ body {
   }
 
 
-
-span {
+.watchout-2 {
     position: absolute;
     left: 50%;
     top: 20%;
@@ -106,7 +105,7 @@ span {
     cursor: pointer;
   }
   
-  span::before {
+  .watchout-2::before {
     content: "WATCHOUT";
     position: absolute;
     color: transparent;
@@ -124,7 +123,7 @@ span {
     transition: 1s;
   }
   
-  span::after {
+  .watchout-2::after {
     content: "WATCHOUT!";
     position: absolute;
     color: transparent;
@@ -141,12 +140,12 @@ span {
     transition: 1s;
   }
   
-  span:hover:before {
+  .watchout-2:hover:before {
     top: 10px;
     left: 10px;
   }
   
-  span:hover:after {
+  .watchout-2:hover:after {
     top: -10px;
     left: -10px;
   } 
@@ -411,5 +410,48 @@ span {
     background: #111;
     z-index: 0;
   }
+
+  /************************** ABOUT US CONTAINER *************************/
+
+  .container_slide {
+    margin-top: 2%;
+    color: #FFF;
+    border: 2px solid #77dd77;
+    border-radius: 0px;
+    padding: 18px 36px;
+    display: inline-block;
+    font-family: "Lucida Console", Monaco, monospace;
+    font-size: 14px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    box-shadow: inset 0 0 0 0 #77dd77;
+    -webkit-transition: ease-out 1.3s;
+    -moz-transition: ease-out 1.3s;
+    transition: ease-out 1.3s;
+  }
+
+  .slide_down:hover {
+    box-shadow: inset 0 950px 0 0 #77dd77;
+    color: rgb(0, 0, 0);
+  }
+
+  /*
+  .container-about-us{
+    margin-left: 35%;
+    height: 950px;
+    width: 600px;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+  }
+
+  .container-about-us:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+  }
+  */
+
+
+
+  
 
   
