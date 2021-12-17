@@ -35,7 +35,7 @@ import mur8 from "../../assets/mur8.png";
 import mur9 from "../../assets/mur9.png";
 import mur10 from "../../assets/mur10.png";
 import mur11 from "../../assets/mur11.png";
-import { API_URL } from "../../../../../../demo jeu/frontend/js-projetFrontEnd/src/utils/server.js";
+import { API_URL } from "../utils/server";
 import {getUserSessionData} from "../utils/session"
 
 class GameScene extends Phaser.Scene {
@@ -129,11 +129,9 @@ class GameScene extends Phaser.Scene {
   update() {
     // End GAME
     if (this.gameOver) { 
-      let user = getUserSessionData();
-      if(this.scoreReel>user.maxscore){
-        this.setMaxScore(user.username, this.scoreReel);
-      }
-      this.saveNumberOfGame();
+      console.log(this.scoreReel.getScore());     
+      this.setMaxScore(this.scoreReel.getScore());      
+      this.scene.stop();
       return;
     }
     
@@ -163,10 +161,12 @@ class GameScene extends Phaser.Scene {
    
   }
 
-  setMaxScore(username,maxscore){
+  setMaxScore(maxscore){
+    let user = getUserSessionData();
+    console.log(user.username);
     fetch(API_URL + 'users/setMaxScore',{
       method: "POST", 
-      body: JSON.stringify({username: username, score: maxscore}), 
+      body: JSON.stringify({username: user.username, score: maxscore}), 
       headers: {
           Authorization: user.token,
           "Content-Type": "application/json",
@@ -408,43 +408,7 @@ class GameScene extends Phaser.Scene {
     this.time.addEvent({ delay: delay6, callback: this.createMechants6, callbackScope: this, loop: 0 });
     this.time.addEvent({ delay: delay6, callback: this.spwan6, callbackScope: this, loop: 0 })
   }
-
-  saveNumberOfGame(){
-    let user = getUserSessionData();
-    fetch(API_URL + 'users/getNumberOfGames/', { headers: { "Authorization": user.token } })
-      .then(function (response) {
-        return response.json();
-      })
-      .then(function (data) {
-        fetch(API_URL + "users/setNumberOfGames/", {
-          headers: {
-            "Authorization": user.token,
-          },
-        }).then((response) => {
-          if (!response.ok)
-            throw new Error(
-              "Error: " + response.status + " : " + response.statusText
-            );
-          return response.json();
-        }).catch((err) => {
-          let page = document.querySelector("#page");
-          let errorMessage = "";
-          if (err.message.includes("409"))
-            errorMessage = "ERROR";
-          else errorMessage = err.message;
-          page.innerText = errorMessage;
-        });
-      })
-  }
-
-  getMaxscore(){
-    let user =getUserSessionData();
-    fetch(API_URL + 'users/getMaxScore/', { headers: { "Authorization": user.token} })
-    .then(function (response){
-      return response.json();
-    })  
-  }
-  
+ 
   //don't work?
   /*onError(err) {
     let page = document.querySelector(".page");
