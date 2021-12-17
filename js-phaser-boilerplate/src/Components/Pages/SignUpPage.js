@@ -16,21 +16,21 @@ let signup =`<head>
         </div>
         <div class="card-body">
             <form id="formsignup">
-                <div class="input-group form-group">
+                <div class="input-group form-group" id="group_input">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
                     <input id="username" type="text" class="form-control" placeholder="username">
                     
                 </div>
-                <div class="input-group form-group">
+                <div class="input-group form-group" id="group_input">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-user"></i></span>
                     </div>
                     <input id="email" type="text" class="form-control" placeholder="email">
                     
                 </div>
-                <div class="input-group form-group">
+                <div class="input-group form-group" id="group_input">
                     <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fas fa-key"></i></span>
                     </div>
