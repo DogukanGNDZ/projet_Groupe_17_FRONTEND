@@ -160,9 +160,8 @@ body {
 
   .watchout {
     height: 350px;
-  }
-
-  
+  }  
+ 
 
 /************************** ROAD *************************/
 
@@ -396,7 +395,7 @@ body {
     z-index: 0;
   }
 
-  /************************** ABOUT US CONTAINER *************************/
+  /************************** ABOUT US *************************/
 
   .container_slide {
     margin-top: 2%;
@@ -435,8 +434,26 @@ body {
   }
   */
 
-
-
+/************************** GAME PAGE *************************/
+.container-game-page {
+  padding: 10px 50px;
+  border-radius: 35px;
+  border: 15px solid #111;
+  margin: auto;
+  position: absolute;
+  top: 10%;
+  left: 25%;
   
+}
 
+.container-gp{
   
+}
+  
+/* source
+
+
+https://codepen.io/tan-ramos-web/pen/BjXYZN
+https://www.youtube.com/watch?v=ZHB2veitEaU&t=194s
+
+*/

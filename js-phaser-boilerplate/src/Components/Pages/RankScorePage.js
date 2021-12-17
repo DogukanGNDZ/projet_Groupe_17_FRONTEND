@@ -42,7 +42,10 @@ const loadAllscore = async() => {
                     `</tbody>
                 </table>
             </div>
-    </div>`;
+        </div>
+        <div class=\"infinite\">
+            <div class=\"shadow-road\"></div>
+        </div>`;
         page.innerHTML = pageHtml;
     });
 

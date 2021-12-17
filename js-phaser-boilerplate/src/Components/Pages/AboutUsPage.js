@@ -1,7 +1,7 @@
 import { RedirectUrl } from "../Router/Router";
 
 let aboutUsPage = ` 
-  <div class=\"container-about-us container_slide slide_down \"> <br> <h1 >About us :</h1><br>
+  <div class=\"container-about-us container_slide slide_down \"> <br> <h1>About us :</h1><br>
     <h4>
     Bonjour,<br>
     Nous sommes 4 étudiants en informatique de gestion,<br>
