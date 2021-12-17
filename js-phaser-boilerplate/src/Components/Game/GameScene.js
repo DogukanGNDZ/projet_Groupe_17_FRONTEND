@@ -163,6 +163,7 @@ class GameScene extends Phaser.Scene {
 
   setMaxScore(maxscore){
     let user = getUserSessionData();
+    if(user){
     console.log(user.username);
     fetch(API_URL + 'users/setMaxScore',{
       method: "POST", 
@@ -176,7 +177,8 @@ class GameScene extends Phaser.Scene {
       if (!response.ok)
           throw new Error("Error code : " + response.status + " : " + response.statusText);
       return response.json();
-    });
+    })
+    }
   }
 
   createPlayer() {
