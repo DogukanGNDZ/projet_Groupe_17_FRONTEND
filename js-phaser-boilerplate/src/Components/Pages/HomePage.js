@@ -20,7 +20,7 @@ const HomePage = () => {
     </h1><br> 
 
     <h3>
-      Vous controllez un personnage avec les flèches sur votre clavier. Le but du jeu est de récupérer les plus de pièces sans se faire toucher par les différents véhicules qui se trouvent sur la route. Les pièces récupérées doivent être ramenées dans le coffre qui se trouve au tout début de la map pour que les prochaines pièces réaparessent. Bonne chance ! 
+      Vous controllez un personnage avec les flèches sur votre clavier. Le but du jeu est de récupérer les plus de pièces sans se faire toucher par les différents véhicules qui se trouvent sur la route. Les pièces récupérées doivent être ramenées dans le coffre qui se trouve au tout début de la map pour que les prochaines pièces réaparessent. Si tu souhaites comparer ton score avec d'autres personnes, n'hésite pas à te Log in pour accéder au classement mondiale. Bonne chance ! 
     </h3> 
 
   </div>  
