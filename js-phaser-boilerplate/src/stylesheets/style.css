@@ -72,94 +72,7 @@ body {
     height: 100vh;
     width: 100vw;
     color: white;
-  }
-
-
-.watchout-2 {
-    position: absolute;
-    left: 50%;
-    top: 20%;
-    transform: translate(-50%, -50%);
-    display: block;
-    color: #45404e;
-    font-size: 124px;
-    letter-spacing: 8px;
-    cursor: pointer;
-  }
-  
-  .watchout-2::before {
-    content: "WATCHOUT";
-    position: absolute;
-    color: transparent;
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent 0,
-      transparent 2px,
-      white 2px,
-      white 4px
-    );
-    -webkit-background-clip: text;
-    top: 0px;
-    left: 0;
-    z-index: -1;
-    transition: 1s;
-  }
-  
-  .watchout-2::after {
-    content: "WATCHOUT!";
-    position: absolute;
-    color: transparent;
-    background-image: repeating-linear-gradient(
-      135deg,
-      transparent 0,
-      transparent 2px,
-      white 2px,
-      white 4px
-    );
-    -webkit-background-clip: text;
-    top: 0px;
-    left: 0px;
-    transition: 1s;
-  }
-  
-  .watchout-2:hover:before {
-    top: 10px;
-    left: 10px;
-  }
-  
-  .watchout-2:hover:after {
-    top: -10px;
-    left: -10px;
-  } 
-
-  h3 {
-    text-align: left;
-    line-height: 45px;
-    word-spacing: 9px;
-  }
-  
-  h4 {
-    text-align: center;
-    line-height: 45px;
-  }
-
-  .center {
-    margin-left: 30%;
-    margin-right: 30%;
-    height: 500px;
-    box-shadow: 20px 20px rgba(0,0,0,.15);
-    transition: all .4s ease;
-  }
-
-  .center:hover {
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-    box-shadow: 10px 10px rgba(0,0,0,.25);
-  }
-
-  .watchout {
-    height: 350px;
   }  
- 
 
 /************************** ROAD *************************/
 
@@ -411,8 +324,15 @@ body {
   right: 23%;
 }
 
+/************************** SCORE PAGE *************************/
 
-/************************** Button play home page *************************/
+.container-score{
+  border: 5px outset #ffcc33;
+}
+
+/************************** HOME PAGE *************************/
+
+/** PLAY BUTON **/
 .btn-play{
   position: relative;
   display: inline-flex;
@@ -460,6 +380,93 @@ body {
 .btn-play a:hover{
   transform: translateZ(-25px) rotateX(-90deg);
 }
+
+/** WATCHOUT **/
+.watchout-2 {
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, -50%);
+  display: block;
+  color: #45404e;
+  font-size: 124px;
+  letter-spacing: 8px;
+  cursor: pointer;
+}
+
+.watchout-2::before {
+  content: "WATCHOUT";
+  position: absolute;
+  color: transparent;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 2px,
+    white 2px,
+    white 4px
+  );
+  -webkit-background-clip: text;
+  top: 0px;
+  left: 0;
+  z-index: -1;
+  transition: 1s;
+}
+
+.watchout-2::after {
+  content: "WATCHOUT!";
+  position: absolute;
+  color: transparent;
+  background-image: repeating-linear-gradient(
+    135deg,
+    transparent 0,
+    transparent 2px,
+    white 2px,
+    white 4px
+  );
+  -webkit-background-clip: text;
+  top: 0px;
+  left: 0px;
+  transition: 1s;
+}
+
+.watchout-2:hover:before {
+  top: 10px;
+  left: 10px;
+}
+
+.watchout-2:hover:after {
+  top: -10px;
+  left: -10px;
+} 
+
+h3 {
+  text-align: left;
+  line-height: 45px;
+  word-spacing: 9px;
+}
+
+h4 {
+  text-align: center;
+  line-height: 45px;
+}
+
+.center {
+  margin-left: 30%;
+  margin-right: 30%;
+  height: 500px;
+  box-shadow: 20px 20px rgba(0,0,0,.15);
+  transition: all .4s ease;
+}
+
+.center:hover {
+  border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+  box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.watchout {
+  height: 350px;
+}
+
 
 /* source
 

@@ -29,22 +29,24 @@ const loadAllscore = async() => {
     
 
     let pageHtml = `
-        <div class="row mx-0">
-            <div class="col-0 col-md-2 col-lg-3"></div>
-            <div class="mt-3 mt-sm-5 col-12 col-md-8 col-lg-6">
-                <h1 class="text-center mb-3">Classements</h1>
-                <table class="table table-dark text-center">
-                    <thead>
-                        <tr><th colspan="3"><h5>Meilleurs joueurs</h5></th></tr>
-                    </thead>
-                    <tbody>`
-                        + content +
-                    `</tbody>
-                </table>
-            </div>
+    <div class="row mx-0">
+        <div class="col-0 col-md-2 col-lg-3"></div>
+        <div class="mt-3 mt-sm-5 col-12 col-md-8 col-lg-6">
+            <h1 class="text-center mb-3">Classements</h1>
+            <div class=\"container-score\">
+            <table class="table table-dark text-center">
+                <thead>
+                    <tr><th colspan="3"><h5>Meilleurs joueurs</h5></th></tr>
+                </thead>
+                <tbody>`
+                    + content +
+                `</tbody>
+            </table>
         </div>
-        <div class=\"infinite\">
-            <div class=\"shadow-road\"></div>
+    </div>
+    <div class=\"infinite\">
+        <div class=\"shadow-road\"></div>
+    </div> 
         </div>`;
         page.innerHTML = pageHtml;
     });
