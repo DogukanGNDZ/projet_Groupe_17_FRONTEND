@@ -462,7 +462,14 @@ body {
 }
 
 .container-gp{
-  
+  padding: 10px 50px;
+  border-radius: 35px;
+  border: 15px solid #111;
+  margin: auto;
+  position: absolute;
+  top: 10%;
+  left: 23%;
+  right: 23%;
 }
   
 /* source

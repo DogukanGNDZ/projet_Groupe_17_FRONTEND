@@ -13,9 +13,11 @@ const GamePage = () => {
   <div id="gameDiv"></div>
   </div>
 
+  <button id="playAgain" type="button" class="btn btn-danger btn-lg btn-block">Play Again</button>
+  
 </div>
 
-<button id="playAgain" type="button" class="btn btn-danger btn-lg btn-block">Play Again</button>
+
 
 <div class=\"traffic-lights shape\">
   <div class=\"shadow\"></div>
