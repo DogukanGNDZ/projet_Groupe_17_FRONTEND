@@ -13,7 +13,7 @@ const GamePage = () => {
   <div id="gameDiv"></div>
   </div>
 
-  <button id="playAgain" type="button" class="btn btn-danger btn-lg btn-block">Play Again</button>
+  <span id="playAgain" type="submit" class=\"btn-play\"><a href="game"></a></span>
   
 </div>
 

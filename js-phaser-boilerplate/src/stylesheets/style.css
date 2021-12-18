@@ -415,7 +415,7 @@ body {
   .container_slide {
     margin-top: 2%;
     color: #FFF;
-    border: 2px solid #77dd77;
+    border: 2px solid #ffcc33;
     border-radius: 0px;
     padding: 18px 36px;
     display: inline-block;
@@ -423,14 +423,14 @@ body {
     font-size: 14px;
     letter-spacing: 1px;
     cursor: pointer;
-    box-shadow: inset 0 0 0 0 #77dd77;
-    -webkit-transition: ease-out 0.4s;
-    -moz-transition: ease-out 0.4s;
-    transition: ease-out 0.4s;
+    box-shadow: inset 0 0 0 0 #ffcc33;
+    -webkit-transition: ease-out 1.3s;
+    -moz-transition: ease-out 1.3s;
+    transition: ease-out 1.3s;
   }
 
   .slide_down:hover {
-    box-shadow: inset 0 950px 0 0 #77dd77;
+    box-shadow: inset 0 950px 0 0 #ffcc33;
     color: rgb(0, 0, 0);
   }
 
