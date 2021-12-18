@@ -39,8 +39,10 @@ const HomePage = () => {
     <div class=\"light green\"></div>
   </div> 
   
-  <span id="playAgain" type="button" class=\"btn-play\"><a href="#"></a></span>
+  <span id="playAgain" type="submit" class=\"btn-play\"><a href="game"></a></span>
   `;
+
+  
 };
 
 export default HomePage;

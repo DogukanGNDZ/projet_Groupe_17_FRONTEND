@@ -84,7 +84,7 @@ const Navbar = () => {
                 <a class="nav-link" href="#" data-uri="/login">Log in</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#" data-uri="/aboutUsPage">About us</a>
+                <a class="nav-link" href="#" data-uri="/aboutUsPage">A propos de nous</a>
               </li> 
               
             </ul>
