@@ -13,7 +13,6 @@
     background-color: rgba(0,0,0,0.5) !important;
 }
 
-
 .card-header h3{
     color: white;
 }
@@ -64,23 +63,6 @@ input:focus{
 .links a{
     margin-left: 4px;
 }
-
-/*
---About us--
-*/
-/*
-.cadre-panneau-aboutus {
-    position: absolute;
-    list-style: none;
-    justify-content: center;
-    left: 50%;
-    top: 30%;
-    transform: translate(-50%, -50%);
-    padding: 5%;
-  }*/
-
-
-/*HOME PAGE*/
 
 body {
     padding: 0;
@@ -215,19 +197,6 @@ body {
     }
   }
 
-  /*
-  .infinite:after{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 30px;
-    background: #333;
-    bottom: -30px;
-    transform-origin: top;
-    transform: perspective(500px) rotateX(-25deg);
-  }
-  */
-
   .shadow-road{
     position: absolute;
     bottom: -93px;
@@ -347,21 +316,6 @@ body {
     animation: green 10s linear infinite;
   }
   
-  
-  /*
-  .container{
-    position:absolute;
-    top:50%;
-    left:50%;
-    transform:translate(-50%, -50%) scale(0.8);
-    width:500px;
-    height:500px;
-    border-radius:50%;
-    background:#F25E6E;
-    background:#54606E;
-  }
-  */
-  
   .traffic-lights::before {
     content: "";
     width: 5em;
@@ -411,7 +365,6 @@ body {
   }
 
   /************************** ABOUT US *************************/
-
   .container_slide {
     margin-top: 2%;
     color: #FFF;
@@ -433,21 +386,6 @@ body {
     box-shadow: inset 0 950px 0 0 #ffcc33;
     color: rgb(0, 0, 0);
   }
-
-  /*
-  .container-about-us{
-    margin-left: 35%;
-    height: 950px;
-    width: 600px;
-    box-shadow: 20px 20px rgba(0,0,0,.15);
-    transition: all .4s ease;
-  }
-
-  .container-about-us:hover {
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-    box-shadow: 10px 10px rgba(0,0,0,.25);
-  }
-  */
 
 /************************** GAME PAGE *************************/
 .container-game-page {
@@ -474,7 +412,6 @@ body {
 
 
 /************************** Button play home page *************************/
-
 .btn-play{
   position: relative;
   display: inline-flex;
@@ -523,8 +460,6 @@ body {
   transform: translateZ(-25px) rotateX(-90deg);
 }
 
-
-  
 /* source
 
 https://codepen.io/tan-ramos-web/pen/BjXYZN
