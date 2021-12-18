@@ -9,7 +9,7 @@ const RankScorePage = () => {
 
 const loadAllscore = async() => {
     let user = getUserSessionData();
-        await fetch( '/api/users/maxscoreBoard', { headers: { "Authorization": user.token} }).then(function(response){
+        await fetch(API_URL + 'users/maxscoreBoard', { headers: { "Authorization": user.token} }).then(function(response){
             if(!response.ok){
                 throw new Error(response.status + " " + response.statusText);
             }
@@ -35,7 +35,7 @@ const loadAllscore = async() => {
                 <h1 class="text-center mb-3">Classements</h1>
                 <table class="table table-dark text-center">
                     <thead>
-                        <tr><th colspan="3"><h5>Meilleurs Scores Généraux</h5></th></tr>
+                        <tr><th colspan="3"><h5>Meilleurs joueurs</h5></th></tr>
                     </thead>
                     <tbody>`
                         + content +
