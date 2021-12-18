@@ -471,11 +471,65 @@ body {
   left: 23%;
   right: 23%;
 }
+
+
+/************************** Button play home page *************************/
+
+.btn-play{
+  position: relative;
+  display: inline-flex;
+  width: 180px;
+  height: 55px;
+  margin: 0 15px;
+  perspective: 1000px;
+  margin-top: 3%;
+}
+
+.btn-play a{
+  font-size: 19px;
+  letter-spacing: 1px;
+  transform-style: preserve-3d;
+  transform: translateZ(-25px);
+  transition: transform .25s;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.btn-play a:before,
+.btn-play a:after{
+  position: absolute;
+  content: "PLAY";
+  height: 55px;
+  width: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 5px solid #ff6666;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+
+.btn-play a:before{
+  color: #fff;
+  background: #ff6666;
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+.btn-play a:after{
+  color: #ff6666;
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.btn-play a:hover{
+  transform: translateZ(-25px) rotateX(-90deg);
+}
+
+
   
 /* source
 
-
 https://codepen.io/tan-ramos-web/pen/BjXYZN
 https://www.youtube.com/watch?v=ZHB2veitEaU&t=194s
+https://codepen.io/prathkum/pen/dyMPErw
+https://codepen.io/Anon_satyam/pen/JjXLoNJ
 
 */
