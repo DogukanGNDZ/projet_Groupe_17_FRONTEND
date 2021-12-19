@@ -1,6 +1,6 @@
 import Phaser from "phaser";
 import GameScene from "../Game/GameScene.js";
-import music from "../../assets/density.mp3";
+import music from "../../assets/density1.mp3";
 
 var game;
 
