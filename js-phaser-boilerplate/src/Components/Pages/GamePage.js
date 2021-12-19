@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import GameScene from "../Game/GameScene.js";
+import music from "../../assets/density1.mp3";
 
 var game;
 
@@ -14,6 +15,12 @@ const GamePage = () => {
   </div>
 
   <span id="playAgain" type="submit" class=\"btn-play\"><a href="game"></a></span>
+  <audio id="audioPlayer" controls autoplay loop>
+  <source 
+  src="${music}"
+    type="audio/mpeg"/>
+  Your browser does not support the audio element.
+  </audio>
   
 </div>
 
