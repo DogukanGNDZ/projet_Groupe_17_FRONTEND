@@ -1,20 +1,30 @@
 import { RedirectUrl } from "../Router/Router";
 
+  /***************************************************************************************
+*    Title: <CSS Endless Road Animation Effects | CSS Isometric Design>
+*    Author: <Online Tutorials>
+*    Availability: <https://www.youtube.com/watch?v=ZHB2veitEaU&t=194s>
+***************************************************************************************/
+
 let aboutUsPage = ` 
   <div class=\"container-about-us container_slide slide_down \"> <br> <h1>About us :</h1><br>
     <h4>
-    Bonjour,<br>
-    Nous sommes 4 étudiants en informatique de gestion,<br>
-    qui avons eu l'idée de faire un jeu pour notre projet de JavaScript.<br>     
-    Contact : <br><br>
-    GUNDUZ Dogukan<br>
-    dogukan.gunduz@student.vinci.be <br><br>
-    KRAWCZYKOWICZ Mateusz <br>
-    mateusz.krawczykowicz@student.vinci.be <br><br>
-    DEVAUX Jérôme <br>
-    jerome.devaux@student.vinci.be <br><br>
-    FERRIERE Maxime <br>
-    maxime.ferriere@student.vinci.be <br>
+      Bonjour,<br>
+      Nous sommes 4 étudiants en informatique de gestion,<br>
+      qui avons eu l'idée de faire un jeu pour notre projet de JavaScript.<br>     
+      Contact : <br><br>
+
+      GUNDUZ Dogukan<br>
+      dogukan.gunduz@student.vinci.be <br><br>
+
+      KRAWCZYKOWICZ Mateusz <br>
+      mateusz.krawczykowicz@student.vinci.be <br><br>
+
+      DEVAUX Jérôme <br>
+      jerome.devaux@student.vinci.be <br><br>
+      
+      FERRIERE Maxime <br>
+      maxime.ferriere@student.vinci.be <br>
     </h4>
   </div>
 
