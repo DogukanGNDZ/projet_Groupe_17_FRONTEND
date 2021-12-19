@@ -24,6 +24,8 @@ import busDroite from "../../assets/busDroite.png";
 import dudeAsset from "../../assets/Hero.png";
 import coffre from "../../assets/coffre.png";
 import lambo from "../../assets/lamboGauche.png";
+//sound
+import gameSoundAsset from "../../assets/density.mp3";
 
 //import des murs
 import mur1 from "../../assets/mur1.png";
@@ -51,6 +53,7 @@ class GameScene extends Phaser.Scene {
     this.gameOver = false;
     this.timedEvent = undefined;
     this.coffre =undefined;
+    this.gameSound = undefined;
 
   }
 
@@ -70,6 +73,9 @@ class GameScene extends Phaser.Scene {
     this.load.image("mur9", mur9);
     this.load.image("mur10", mur10);
     this.load.image("mur11", mur11);
+    
+    //charge son
+    this.load.audio("gameSound", gameSoundAsset);
     
     //charge Voiture
     this.load.image(VOITURERG_KEY, voitureRougeGAsset);
@@ -99,6 +105,10 @@ class GameScene extends Phaser.Scene {
         //affichage score
         this.scoreLabel = this.createScoreLabel(16, 735, 0);
         this.scoreReel = this.createScoreLabel2(16, 765, 0);
+        //audio
+        this.gameSound = this.sound.add("gameSound");
+        this.gameSound.loop = true;
+        this.gameSound.play();
         
         
         //apparition des voitures
