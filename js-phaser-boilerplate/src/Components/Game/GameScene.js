@@ -107,6 +107,7 @@ class GameScene extends Phaser.Scene {
         this.scoreReel = this.createScoreLabel2(16, 765, 0);
         //audio
         this.gameSound = this.sound.add("gameSound");
+        
         this.gameSound.loop = true;
         this.gameSound.play();
         
@@ -142,6 +143,7 @@ class GameScene extends Phaser.Scene {
       console.log(this.scoreReel.getScore());     
       this.setMaxScore(this.scoreReel.getScore());      
       this.scene.stop();
+      this.gameSound.stop();
       return;
     }
     
