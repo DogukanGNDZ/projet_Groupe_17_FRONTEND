@@ -142,6 +142,7 @@ class GameScene extends Phaser.Scene {
       console.log(this.scoreReel.getScore());     
       this.setMaxScore(this.scoreReel.getScore());      
       this.scene.stop();
+      this.gameSound.stop();
       return;
     }
     
