@@ -3,6 +3,12 @@ import { Router, Redirect } from "../Router/Router";
 import { getUserSessionData, setUserSessionData } from "../utils/session";
 import { API_URL } from "../utils/server";
 
+/***************************************************************************************
+*    Title: "Elegant Login Page"
+*    Author: SamimOnline
+*    Availability: https://bootsnipp.com/snippets/vl4R7
+*
+***************************************************************************************/
 let login =`<head>
 <title>Login Page</title>
 </head>
