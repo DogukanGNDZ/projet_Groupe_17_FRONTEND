@@ -106,9 +106,9 @@ class GameScene extends Phaser.Scene {
         this.scoreLabel = this.createScoreLabel(16, 735, 0);
         this.scoreReel = this.createScoreLabel2(16, 765, 0);
         //audio
-        this.gameSound = this.sound.add("gameSound");
+        /*this.gameSound = this.sound.add("gameSound");
         this.gameSound.loop = true;
-        this.gameSound.play();
+        this.gameSound.play();*/
         
         
         //apparition des voitures
