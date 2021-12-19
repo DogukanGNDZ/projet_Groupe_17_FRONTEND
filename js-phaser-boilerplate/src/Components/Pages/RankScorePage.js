@@ -28,6 +28,12 @@ const loadAllscore = async() => {
         });
     
 
+/***************************************************************************************
+*    Title: RankingPage.js
+*    Author: AgroLucas, bastientoubbe, baptistehonnay
+*    Availability: https://github.com/baptistehonnay/Projet_JS_Frontend/blob/master/src/Components/RankingPage.js
+*
+***************************************************************************************/
     let pageHtml = `
     <div class="row mx-0">
         <div class="col-0 col-md-2 col-lg-3"></div>
